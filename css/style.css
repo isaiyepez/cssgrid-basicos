@@ -124,4 +124,20 @@ h1, h2 {
 
 .grid-7 {
     display: grid;
+    /* La primer columna va a medir
+    el doble de la segunda y la tercera */
+    /* grid-template-columns: 2fr repeat(2, 1fr); */
+    grid: repeat(2, 1fr) / repeat(3, 1fr);
+    /* En la linea anterior, no hay fraccion para hace
+    la division de las filas, entonces el contenido es
+    el que va a definir la altura. Se puede también
+    definir una altura con valores estáticos. */
+
+    grid: repeat(2, 50rem) / repeat(3, 1fr);
+    /* En esta linea, se  aplican 2 filas y 3 columnas*/
+}
+
+.grid-8 {
+    display: grid;
+    grid: repeat(4, 500rem);
 }
