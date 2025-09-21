@@ -139,5 +139,122 @@ h1, h2 {
 
 .grid-8 {
     display: grid;
-    grid: repeat(4, 500rem);
+    grid: repeat(2, 20rem) / repeat(3, 1fr);
+    /* column-gap: 4rem;
+    row-gap: 4rem; */
+    gap: 4rem; /* Atajo para definir row-gap y column-gap */
+}
+
+.grid-8 .box {
+    margin: 0;
+}
+
+.grid-9 {
+    display: grid;
+    height: 120rem;
+    grid-template-areas: "header header header"
+                         "nav nav nav"
+                         "contenido contenido sidebar"
+                         "footer footer footer";
+    grid-template-columns: repeat(3, 1fr);
+    /* grid-template-rows: 25rem 10rem 60rem 25rem; */
+/* La ventaja del enfoque de la linea de abajo
+   es que ahora ya no nos preocupamos por pasarnos de 
+   los 120 rem iniciales, al usar fracciones CSS
+   hace el cálculo por nosotros */
+    grid-template-rows: 2.5fr 1fr 6fr 2.5fr;
+    gap: 4rem;
+}
+
+.grid-9 .box {
+    margin: 0;
+}
+
+.grid-9 .box:nth-child(1) {
+    grid-area: header;
+    background-color: cornflowerblue;
+}
+
+.grid-9 .box:nth-child(2) {
+    grid-area: nav;
+    background-color: darkorange;
+}
+.grid-9 .box:nth-child(3) {
+    grid-area: contenido;
+    background-color: crimson;
+}
+.grid-9 .box:nth-child(4) { 
+    grid-area: sidebar;
+    background-color: teal;
+}
+.grid-9 .box:nth-child(5) { 
+    grid-area: footer;
+    background-color: purple;
+}
+
+
+
+.grid-10 {
+    display: grid;
+    height: 120rem;
+    grid-template: "header header header" 2.5fr
+                         "nav nav nav" 1fr
+                         "contenido contenido sidebar" 6fr
+                         "footer footer footer" 2.5fr / 1fr 1fr 1fr;
+    /*grid-template-columns: repeat(3, 1fr);
+     grid-template-rows: 2.5fr 1fr 6fr 2.5fr; */
+    gap: 4rem;
+}
+
+.grid-10 .box {
+    margin: 0;
+}
+
+.grid-10 .box:nth-child(1) {
+    grid-area: header;
+    background-color: darkorange;
+}
+
+.grid-10 .box:nth-child(2) {
+    grid-area: nav;
+    background-color: cornflowerblue;
+}
+.grid-10 .box:nth-child(3) {
+    grid-area: contenido;
+    background-color: teal;
+}
+.grid-10 .box:nth-child(4) { 
+    grid-area: sidebar;
+    background-color: purple;
+}
+.grid-10 .box:nth-child(5) { 
+    grid-area: footer;
+    background-color: crimson;
+}
+
+.grid-11 {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    height: 300px;
+    place-content: center;
+    /* place-content es align-content y justify
+    content en una sola línea  */
+}
+
+.grid-12 {
+    display: grid;
+
+    /* No se pueden usar pixeles, solo */
+
+    /* Auto fill, llena de columnas todo el espacio disponible 
+    aunque queden columnas vacias*/
+    grid-template-columns: repeat(auto-fill, 200px);
+    /* Auto fit, solo va a crear las columnas 
+    que sean necesarias dependiendo del contenido
+    INSPECCIONAR ELEMENTO PARA PERCIBIR MEJOR 
+    LA DIFERENCIA */
+    grid-template-columns: repeat(auto-fit, 200px);
+
+    /* Para usar fracciones, hay que usar minmax */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
